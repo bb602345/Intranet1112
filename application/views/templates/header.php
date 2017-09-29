@@ -6,37 +6,67 @@
     <script src="/js/popper.min.js" type="text/javascript"></script>
     <script src="/js/bootstrap.js" type="text/javascript"></script>
     <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <style>
+      .bg-custom { background-color: #2e1c0c; }
+      .bg-body{ background-color: #F9E8D4; }
+      .no-padding{ padding:0px; }
+      .navbar-toggler { padding:9px 10px;}
+      .icon-bar { display: block; width: 22px; height: 2px; border-radius: 1px; background-color: #dae0e5!important;}
+      .icon-bar+.icon-bar { margin-top:4px; }
+      .nav-item.active > .nav-link { color:white !important; }
+      .nav-link:not(.dropdown-toggle) { color:#6a6a6a !important; min-width:75px; text-align: center;}
+      .nav-link.dropdown-toggle  { color:white !important; }
+      .navbar-brand { margin-right: 25px; font-size:24px; }
+      .navbar { font-size: 18px; }
+      .nav-item.dropdown { width:100%; }
+      body { padding-top: 7rem; }
+    </style>
+
   </head>
-  <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Navbar</a>
+  <body class="bg-body">
+    <nav class="navbar navbar-expand-md navbar-light bg-custom fixed-top">
+      <a class="navbar-brand text-light" href="#">內聯網</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-light" href="#">通告</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link text-light" href="#">柯打</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link text-light" href="#">收貨</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">通訊錄</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+
+        <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
+        <?php if(isset($_SESSION['login_user'])) :?>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <?=$_SESSION['login_user']['chr_name']?>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="user/logout">登出</a>
+              <a class="dropdown-item" href="#">修改密碼</a>
+            </div>
+          </li>
+
+        <?php else:?>
+          <li class="nav-item active">
+            <a class="nav-link text-light" href="#">登入</a>
+          </li>
+
+        <?php endif; ?>
+        </ul>
+
       </div>
     </nav>
