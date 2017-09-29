@@ -35,6 +35,7 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
+<<<<<<< HEAD
             <a class="nav-link text-light" href="#">通告</a>
           </li>
           <li class="nav-item">
@@ -45,10 +46,23 @@
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="#">通訊錄</a>
+=======
+            <a class="nav-link text-light" href="#">柯打</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">收貨</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">通訊錄</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="#">通告</a>
+>>>>>>> 44322da0eda623207d83c92db4f6431bddb6dd44
           </li>
         </ul>
 
         <ul class="navbar-nav flex-row ml-md-auto d-md-flex">
+<<<<<<< HEAD
         <?php if(isset($_SESSION['login_user'])) :?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,6 +71,14 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="user/logout">登出</a>
               <a class="dropdown-item" href="#">修改密碼</a>
+=======
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">登出</a>
+              <a class="dropdown-item" href="#">修改密碼</a>
+              <!-- <a class="dropdown-item" href="#">Something else here</a>-->
+>>>>>>> 44322da0eda623207d83c92db4f6431bddb6dd44
             </div>
           </li>
 
@@ -67,6 +89,9 @@
 
         <?php endif; ?>
         </ul>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 44322da0eda623207d83c92db4f6431bddb6dd44
       </div>
     </nav>
