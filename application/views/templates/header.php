@@ -35,6 +35,9 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
+            <a class="nav-link text-light" href="#">通告</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link text-light" href="#">柯打</a>
           </li>
           <li class="nav-item">
@@ -42,9 +45,6 @@
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="#">通訊錄</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">通告</a>
           </li>
         </ul>
 
