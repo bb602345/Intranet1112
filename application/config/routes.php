@@ -51,9 +51,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$route['news/(:any)'] = 'news/view/$1';
 //$route['news'] = 'news';
+$route['login/(:any)'] = 'auth/login/$1';
+$route['login'] = 'auth/login';
 
-$route['(:any)'] = 'pages/view/$1';
-$route['default_controller'] = 'pages/view';
+$route['order'] = 'order/main';
+$route['order/dept/(:any)'] = 'order/dept/$1';
+$route['order/dept/(:any)/cat/(:any)'] = 'order/cat/$1/$2';
+
+$route['notice'] = 'pages/notice';
+$route['default_controller'] = 'auth/login';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

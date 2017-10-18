@@ -1,22 +1,20 @@
 <?php
 class Pages extends CI_Controller{
-	public function view($page='home'){
+	public function notice($page='notice'){
 		$this->load->helper('url');
 		$this->load->helper('html');
 		$this->load->helper('form');
 		$this->load->library('session');
 
-		if ( ! file_exists(APPPATH.'views/pages/'.$page.'.php'))
-		{
-    	// Whoops, we don't have a page for that!
-      show_404();
-  	}
-
-		$data['title'] = ucfirst($page); // Capitalize the first letter
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('pages/'.$page, $data);
-		$this->load->view('templates/footer', $data);
+		$data['active'] = 'notice';
+		if($this->session->login_user){
+			$this->load->view('templates/header', $data);
+			$this->load->view('pages/notice', $data);
+			$this->load->view('templates/footer', $data);
+		}else{
+			$this->session->set_userdata('URL_Redirect', 'notice');
+			redirect('/login/b', 'location');
+		}
 	}
 }
 ?>

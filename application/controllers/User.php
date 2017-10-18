@@ -14,17 +14,17 @@ class User extends CI_Controller{
     if($user !== FALSE)
     {
       $this->session->set_userdata('login_user', $user);
-      redirect('/home', 'refresh');
-    }else
-    {
-      show_404();
+      $url = $this->session->URL_Redirect ? $this->session->URL_Redirect : 'notice';
+      redirect('/'. $this->session->URL_Redirect, 'refresh');
+    }else{
+      redirect('/login/a', 'refresh');
     }
 	}
 
   public function logout()
   {
     $this->session->unset_userdata('login_user');
-    redirect('/home', 'refresh');
+    redirect('/login', 'refresh');
   }
 
 
