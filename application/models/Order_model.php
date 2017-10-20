@@ -32,5 +32,13 @@
       return $query->result_array();
     }
 
+    public function getOrderItem($menuID){
+      $this->db->select('int_id, chr_name, int_base, chr_code, chr_unit');
+      $this->db->from('tbl_order_menu');
+      $this->db->where('int_id', $menuID);
+      $query = $this->db->get();
+      return $query->row_array();
+    }
+
   }
 ?>

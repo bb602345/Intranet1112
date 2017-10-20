@@ -11,6 +11,10 @@ class Auth extends CI_Controller{
   }
 
 	public function login($msg=''){
+    if($this->session->login_user){
+      redirect('/notice', location);
+      exit();
+    }
 
     $data['active'] = $this->session->URL_Redirect;
     switch($msg){

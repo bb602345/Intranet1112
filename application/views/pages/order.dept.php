@@ -12,10 +12,13 @@ function get_explode_chinses_weekday($weekday){
 }
 ?>
 <style>
+  .row {width: 100%; margin:auto; }
   .row > div { width:100%; border:solid 0px red; padding:1px;}
   .row > div > button { border-radius: 0px; width:100%;}
+  a:hover { color: #EAEA00; }
   .btn-custom-1 { background-color: #7D0101; color: #FFF; padding-top:12px; padding-bottom: 12px;}
-  .btn-custom-2 { background-color: #7D5001; color: #FFF; }
+  .btn-custom-2 { background-color: #7D5001; color: #FFF; font-size: 14px; }
+  @media (min-width: 576px) { .btn-custom-2 {font-size: 18px;} }
 </style>
 <a href=<?=$back?> class="btn btn-custom-1 btn-lg btn-block">返回 部門</a>
 <br>

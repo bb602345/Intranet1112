@@ -54,12 +54,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['login/(:any)'] = 'auth/login/$1';
 $route['login'] = 'auth/login';
 
+$route['order/item/list']['post'] = 'cart/list';
+$route['order/item/add/(:any)'] = 'cart/add/$1';
+$route['order/item/set/(:any)/(:any)']['post'] = 'cart/set/$1/$2';
+$route['order/item/remove/(:any)'] = 'cart/remove/$1';
+
 $route['order'] = 'order/main';
 $route['order/dept/(:any)'] = 'order/dept/$1';
 $route['order/dept/(:any)/cat/(:any)'] = 'order/cat/$1/$2';
 
+
 $route['notice'] = 'pages/notice';
-$route['default_controller'] = 'auth/login';
+$route['default_controller'] = 'Auth/login';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

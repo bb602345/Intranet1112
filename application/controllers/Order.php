@@ -64,6 +64,8 @@ class Order extends CI_Controller{
 
 		if($this->session->login_user){
 			$this->load->view('templates/header', $data);
+			$this->load->view('functional/cart/order.cart.php', $data);
+
 			$this->load->view('pages/order.cat.php', $data);
 			$this->load->view('templates/footer', $data);
 		}else{

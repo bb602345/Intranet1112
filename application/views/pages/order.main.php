@@ -1,6 +1,8 @@
 <style>
+  .row {width: 100%; margin:auto; }
   .row > div { width:100%; border:solid 0px red; padding:1px;}
   .row > div > button { border-radius: 0px; width:100%;}
+  a:hover { color: #EAEA00; }
   .btn-custom-1 { background-color: #7D0101; color: #FFF; padding-top:20px; padding-bottom: 20px;}
   .btn-custom-2 { background-color: #7D5001; color: #FFF; }
 </style>
