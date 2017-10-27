@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>CodeIgniter Tutorial</title>
+    <title>內聯網</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="/js/jquery.slim.min.js" type="text/javascript"></script>

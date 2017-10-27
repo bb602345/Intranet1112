@@ -21,20 +21,28 @@
       }
       print $html;
     }
+
     public function add($item){
-      if($this->Cart != null && array_key_exists($item, $this->Cart)){
-        $this->Cart[$item]['qty'] += $this->Cart[$item]['info']['int_base'] * 1;
-      }else{
+      if($this->input->method() != 'post'){
+         show_404();
+      }
+
+      if(!($this->Cart != null && array_key_exists($item, $this->Cart))){
         $menu = $this->order_model->getOrderItem($item);
         $data['info'] = $menu;
         $data['qty'] = 1 * $menu['int_base'];
         $this->Cart[$menu['int_id']] = $data;
+        $this->Cart = array_reverse($this->Cart, true);
       }
       $this->session->set_userdata('cart', $this->Cart);
       $this->list();
     }
     public function set($item, $qty=1){
-      if($qty >= 0){
+      if($this->input->method() != 'post'){
+         show_404();
+      }
+
+      if($qty <= 0){
         $this->remove($item);
         exit();
       }
@@ -46,10 +54,31 @@
       $this->list();
     }
     public function remove($item=NULL){
+      if($this->input->method() != 'post'){
+         show_404();
+      }
+
       unset($this->Cart[$item]);
       $this->session->set_userdata('cart', $this->Cart);
       $this->list();
     }
+    public function submit(){
+      if($this->input->method() != 'post'){
+         show_404();
+      }
+      $userID = $this->session->login_user['int_id'];
+      foreach($this->Cart as $id=>$data){
+        $order = Array(
+            "int_user_id" => $userID,
+            "int_item_id" => $id,
+            "int_qty" => $data['qty']
+        );
+        $this->order_model->addOrder($order);
+      }
+      $this->session->unset_userdata('cart');
+      echo "SUBMIT_SUCCESS";
+    }
+
     private function getRowCart($count, $item, $qty){
       $bg = $count % 2 == 0 ? '#fff':'#eee';
       $html = <<< EOT

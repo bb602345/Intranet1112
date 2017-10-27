@@ -18,16 +18,35 @@ function get_explode_chinses_weekday($weekday){
   a:hover { color: #EAEA00; }
   .btn-custom-1 { background-color: #7D0101; color: #FFF; padding-top:12px; padding-bottom: 12px;}
   .btn-custom-2 { background-color: #7D5001; color: #FFF; font-size: 14px; }
-  @media (min-width: 576px) { .btn-custom-2 {font-size: 18px;} }
+  .btn-custom-5 { background-color: #110169; color: #FFF; padding-top:12px; padding-bottom: 12px;}
+  .btn-custom-6 { background-color: #717171; color: #FFF; font-size: 14px; }
+  .btn-custom-6:hover{ color:#FFF; }
+  @media (min-width: 576px) {
+    .btn-custom-2 {font-size: 18px;}
+    .btn-custom-6 {font-size: 18px;}
+  }
 </style>
-<a href=<?=$back?> class="btn btn-custom-1 btn-lg btn-block">返回 部門</a>
+<div class="row">
+  <div class="col-6">
+    <a href="<?=$back?>" class="btn btn-custom-1 btn-lg btn-block">返回 部門</a>
+  </div>
+  <div class="col-6">
+    <a href="/order/list" class="btn btn-custom-5 btn-lg btn-block">今天已落柯打</a>
+  </div>
+</div>
 <br>
 <h4><u><?=$dept[$picked_dept]['chr_dept_name']?></u></h4>
 
 <div class="row">
   <?php foreach($cat as $index=>$c) : ?>
   <div class="col-6 col-sm-4">
+    <?php
+      $flag = (date("Hi", gettimeofday("sec")) <= $c['int_cut_time']);
+      if($flag || TRUE) : ?>
     <a href="/order/dept/<?=$picked_dept?>/cat/<?=$index?>" class="btn btn-custom-2 btn-lg btn-block">
+    <?php else:?>
+    <a href="#" class="btn btn-custom-6 btn-lg btn-block">
+    <?php endif;?>
       <b><u><?=$c['chr_cat_name']?></u></b>
       <br/>
 

@@ -5,6 +5,7 @@ class Order extends CI_Controller{
 		$this->load->library('session');
 		$this->load->helper('url');
 		$this->load->model('order_model');
+		$this->load->library('user_agent');
 	}
 	public function main($dept=NULL){
 		$data['active'] = 'order';
@@ -12,7 +13,7 @@ class Order extends CI_Controller{
 
 		if($this->session->login_user){
 			$this->load->view('templates/header', $data);
-			$this->load->view('pages/order.main.php', $data);
+			$this->load->view('pages/order/order.main.php', $data);
 			/*
 			if($dept != NULL ){
 				$deptID = $data['dept'][$dept]['int_id'];
@@ -39,7 +40,7 @@ class Order extends CI_Controller{
 
 		if($this->session->login_user){
 			$this->load->view('templates/header', $data);
-			$this->load->view('pages/order.dept.php', $data);
+			$this->load->view('pages/order/order.dept.php', $data);
 			$this->load->view('templates/footer', $data);
 		}else{
 			$this->session->set_userdata('URL_Redirect', 'order');
@@ -66,13 +67,74 @@ class Order extends CI_Controller{
 			$this->load->view('templates/header', $data);
 			$this->load->view('functional/cart/order.cart.php', $data);
 
-			$this->load->view('pages/order.cat.php', $data);
+			$this->load->view('pages/order/order.cat.php', $data);
 			$this->load->view('templates/footer', $data);
 		}else{
 			$this->session->set_userdata('URL_Redirect', 'order');
 			redirect('/login/b', 'location');
 		}
+	}
+	public function list(){
+		$data['active'] = 'order';
+		if(substr($this->agent->referrer(), -5) == 'list2'){
+			$data['back'] = $this->session->back;
+		}else{
+			$this->session->set_userdata('back', $this->agent->referrer());
+			$data['back'] = $this->session->back;
+		}
 
+
+		$temp = $this->order_model->getTodayOrder($this->session->login_user['int_id']);
+
+		foreach($temp as $order){
+			$orderKey = $order['int_id'] . "_" . $order['status'];
+			if(isset($orders[$orderKey])){
+					$orders[$orderKey]['int_qty'] += $order['int_qty'];
+			}else{
+				$orders[$orderKey] = $order;
+				$orders[$orderKey]['int_qty'] += 0;
+			}
+		}
+		if(isset($orders))
+			$data['orders'] = $orders;
+
+		if($this->session->login_user){
+			$this->load->view('templates/header', $data);
+			//echo $this->agent->referrer();
+			$this->load->view('pages/order/order.list.php', $data);
+			$this->load->view('templates/footer', $data);
+		}else{
+			$this->session->set_userdata('URL_Redirect', 'order');
+			redirect('/login/b', 'location');
+		}
+	}
+
+	public function list2(){
+		$data['active'] = 'order';
+		$data['back'] = $this->agent->referrer();
+
+		$temp = $this->order_model->getTodayOrder2($this->session->login_user['int_id']);
+
+		foreach($temp as $order){
+			$orderKey = $order['int_id'] . "_" . $order['status'];
+			if(isset($orders[$orderKey])){
+					$orders[$orderKey]['int_qty'] += $order['int_qty'];
+			}else{
+				$orders[$orderKey] = $order;
+				$orders[$orderKey]['int_qty'] += 0;
+			}
+		}
+		if(isset($orders))
+			$data['orders'] = $orders;
+
+		if($this->session->login_user){
+			$this->load->view('templates/header', $data);
+			$this->load->view('pages/order/order.list2.php', $data);
+			$this->load->view('templates/footer', $data);
+		}else{
+			$this->session->set_userdata('URL_Redirect', 'order');
+			redirect('/login/b', 'location');
+		}
 	}
 
 }

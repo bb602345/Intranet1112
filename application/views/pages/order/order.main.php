@@ -5,7 +5,12 @@
   a:hover { color: #EAEA00; }
   .btn-custom-1 { background-color: #7D0101; color: #FFF; padding-top:20px; padding-bottom: 20px;}
   .btn-custom-2 { background-color: #7D5001; color: #FFF; }
+  .btn-custom-5 { background-color: #110169; color: #FFF; padding-top:12px; padding-bottom: 12px;}
 </style>
+
+<a href="/order/list" class="btn btn-custom-5 btn-lg btn-block">今天已落柯打</a>
+<br/>
+
 <h4><u>部門</u></h4>
 <div class="row">
   <?php foreach($dept as $index=>$d) : ?>

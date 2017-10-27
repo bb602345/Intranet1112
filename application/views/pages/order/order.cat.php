@@ -7,10 +7,18 @@
   .btn-custom-1 { background-color: #7D0101; color: #FFF;}
   .btn-custom-2 { background-color: #7D5001; color: #FFF; padding-top:12px; padding-bottom: 12px;}
   .btn-custom-3 { background-color: #017D01; color: #FFF; font-size: 15px;}
+  .btn-custom-5 { background-color: #110169; color: #FFF; padding-top:12px; padding-bottom: 12px;}
   .modal-lg { margin:30px auto;}
   @media (min-width: 576px) { .btn-custom-3 {font-size: 18px;} }
 </style>
-<a href=<?=$back?> class="btn btn-custom-2 btn-lg btn-block">返回 <?=$dept[$picked_dept]['chr_dept_name']?></a>
+<div class="row">
+  <div class="col-6">
+    <a href=<?=$back?> class="btn btn-custom-2 btn-lg btn-block">返回 <?=$dept[$picked_dept]['chr_dept_name']?></a>
+  </div>
+  <div class="col-6">
+    <a href="/order/list" class="btn btn-custom-5 btn-lg btn-block">今天已落柯打</a>
+  </div>
+</div>
 <br>
 <h4><u><?=$cat[$picked_cat]['chr_cat_name']?></u></h4>
 

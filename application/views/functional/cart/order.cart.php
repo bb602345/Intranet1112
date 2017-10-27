@@ -9,7 +9,7 @@
   .btn-custom-4 {
     height: 28px;
     width: 28px !important;
-    border-radius: 100%;
+    border-radius: 0;
     padding: 0px 0px;
     font-size: 20px;
     line-height: 0;
@@ -37,7 +37,7 @@
     <div id="modal-body" class="modal-body modal-body-custom-1"></div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary">提交柯打</button>
+      <button type="button" class="btn btn-primary" id="submitBtn">提交柯打</button>
       <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
     </div>
   </div>
@@ -54,6 +54,20 @@ $('#cartModal').on('show.bs.modal', function (e) {
   }
   $.ajax(setting);
 });
+$('#submitBtn').on('click', function(){
+  let setting = {
+    url: "/order/submit",
+    type:"POST",
+    success: function(resp){
+      if(resp == "SUBMIT_SUCCESS"){
+        alert("已提交柯打");
+        $('#cartModal').modal('hide');
+      }else
+        alert("提交失敗，請重試。");
+    }
+  }
+  $.ajax(setting);
+})
 
 function initOnInput(){
   $('.CartQty').on('blur', function(e){

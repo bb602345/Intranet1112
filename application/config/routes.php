@@ -54,8 +54,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['login/(:any)'] = 'auth/login/$1';
 $route['login'] = 'auth/login';
 
-$route['order/item/list']['post'] = 'cart/list';
-$route['order/item/add/(:any)'] = 'cart/add/$1';
+$route['order/submit']['post'] = 'cart/submit';
+$route['order/item/add/(:any)']['post'] = 'cart/add/$1';
 $route['order/item/set/(:any)/(:any)']['post'] = 'cart/set/$1/$2';
 $route['order/item/remove/(:any)'] = 'cart/remove/$1';
 
