@@ -9,6 +9,7 @@
     <script src="/js/popper.min.js" type="text/javascript"></script>
     <script src="/js/bootstrap.js" type="text/javascript"></script>
     <link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/css/simple-sidebar.css" type="text/css" rel="stylesheet"/>
     <style>
       .bg-custom { background-color: #2e1c0c; }
       .bg-body{ background-color: #F9E8D4; }
@@ -22,12 +23,12 @@
       .navbar-brand { margin-right: 25px; font-size:24px; }
       .navbar { font-size: 18px; }
       .nav-item.dropdown { width:100%; }
-      body { padding-top: 4.5rem; padding-left:4px; padding-right:4px; }
+      body { padding-top: 65px; padding-left:4px; padding-right:4px; }
     </style>
 
   </head>
   <body class="bg-body">
-    <nav class="navbar navbar-expand-md navbar-light bg-custom fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-custom fixed-top" style="min-height:62px;">
       <a class="navbar-brand text-light" href="#">內聯網</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="icon-bar"></span>

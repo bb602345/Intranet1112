@@ -53,6 +53,18 @@
       $this->session->set_userdata('cart', $this->Cart);
       $this->list();
     }
+    public function update($item, $qty){
+      if($qty == 0){
+        $this->delete($item);
+      }else{
+        $this->order_model
+             ->updateOrder($this->session->login_user['int_id'], $item, $qty);
+      }
+    }
+    public function delete($item){
+      $this->order_model->deleteOrder($this->session->login_user['int_id'], $item);
+    }
+
     public function remove($item=NULL){
       if($this->input->method() != 'post'){
          show_404();

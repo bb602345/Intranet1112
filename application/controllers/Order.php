@@ -76,15 +76,16 @@ class Order extends CI_Controller{
 	}
 	public function list(){
 		$data['active'] = 'order';
-		if(substr($this->agent->referrer(), -5) == 'list2'){
+		if(substr($this->agent->referrer(), -5) == 'list2' ||
+			 substr($this->agent->referrer(), -5) == 'list'){
 			$data['back'] = $this->session->back;
 		}else{
 			$this->session->set_userdata('back', $this->agent->referrer());
 			$data['back'] = $this->session->back;
 		}
-
-
-		$temp = $this->order_model->getTodayOrder($this->session->login_user['int_id']);
+		
+		$temp = $this->order_model
+							->getTodayOrder($this->session->login_user['int_id'], 1);
 
 		foreach($temp as $order){
 			$orderKey = $order['int_id'] . "_" . $order['status'];
@@ -113,7 +114,8 @@ class Order extends CI_Controller{
 		$data['active'] = 'order';
 		$data['back'] = $this->agent->referrer();
 
-		$temp = $this->order_model->getTodayOrder2($this->session->login_user['int_id']);
+		$temp = $this->order_model
+							->getTodayOrder($this->session->login_user['int_id'], 99);
 
 		foreach($temp as $order){
 			$orderKey = $order['int_id'] . "_" . $order['status'];

@@ -1,6 +1,6 @@
 <style>
   .row {width: 100%; margin:auto; font-size:14px; }
-  .row > div { width:100%; border:solid 0px red; padding:1px; line-height: 24px;}
+  .row > div { width:100%; border:solid 0px red; padding-left:1px; padding-right:1px; line-height: 24px;}
   a:hover { color: #EAEA00; }
   .btn-custom-1 { background-color: #7D0101; color: #FFF; padding-top:12px; padding-bottom: 12px;}
   .btn-custom-2 { background-color: #7D5001; color: #FFF; font-size: 14px; }
@@ -26,8 +26,6 @@
   }
   .CartQty{ vertical-align:middle;}
 </style>
-
-
 <div class="row">
   <div class="col-6">
     <a href="<?=$back?>" class="btn btn-custom-5 btn-lg btn-block">返回</a>
@@ -83,3 +81,40 @@
 <?php else: ?>
     <h3><u>今天未有任何柯打</u></h3>
 <?php endif;?>
+
+<script>
+$('.CartBtn').on('click', function(e){
+  let btnType = $(this).data('type');
+  let itemID = $(this).data('item');
+  let base = parseInt($(this).data('base'));
+  let val = parseInt($('#CartQty-' + itemID).val());
+  let newVal = 0;
+  switch(btnType){
+    case 'add':
+      $('#CartQty-' + itemID).val(val + base);
+      newVal = val + base;
+      break;
+    case 'sub':
+      if(val - base >= 0){
+        $('#CartQty-' + itemID).val(val - base);
+        newVal = val - base;
+      }
+      break;
+    case 'del':
+      newVal = 0;
+      break;
+  }
+  let setting = {
+    url: "/order/item/set/" + itemID + "/" + newVal,
+    type: 'PUT'
+  }
+  if(newVal == 0){
+    setting['success'] = function(resp){
+      console.log("ss");
+      location.reload();
+    }
+  }
+  $.ajax(setting);
+
+});
+</script>

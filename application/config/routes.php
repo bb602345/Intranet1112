@@ -57,6 +57,8 @@ $route['login'] = 'auth/login';
 $route['order/submit']['post'] = 'cart/submit';
 $route['order/item/add/(:any)']['post'] = 'cart/add/$1';
 $route['order/item/set/(:any)/(:any)']['post'] = 'cart/set/$1/$2';
+$route['order/item/set/(:any)/(:any)']['put'] = 'cart/update/$1/$2';
+$route['order/item/set/(:any)']['delete'] = 'cart/delete/$1';
 $route['order/item/remove/(:any)'] = 'cart/remove/$1';
 
 $route['order'] = 'order/main';
