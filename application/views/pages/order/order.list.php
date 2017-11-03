@@ -110,7 +110,6 @@ $('.CartBtn').on('click', function(e){
   }
   if(newVal == 0){
     setting['success'] = function(resp){
-      console.log("ss");
       location.reload();
     }
   }

@@ -21,7 +21,7 @@
       .nav-link:not(.dropdown-toggle) { color:#6a6a6a !important; min-width:75px; text-align: center;}
       .nav-link.dropdown-toggle  { color:white !important; }
       .navbar-brand { margin-right: 25px; font-size:24px; }
-      .navbar { font-size: 18px; }
+      .navbar { font-size: 18px; padding:0px 6px;}
       .nav-item.dropdown { width:100%; }
       body { padding-top: 65px; padding-left:4px; padding-right:4px; }
     </style>

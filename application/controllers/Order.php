@@ -83,7 +83,7 @@ class Order extends CI_Controller{
 			$this->session->set_userdata('back', $this->agent->referrer());
 			$data['back'] = $this->session->back;
 		}
-		
+
 		$temp = $this->order_model
 							->getTodayOrder($this->session->login_user['int_id'], 1);
 
