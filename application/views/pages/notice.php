@@ -10,8 +10,8 @@
 .table-notice { font-size: 16px; width:100%;}
 .table-notice > .header { font-size:1.2em; }
 .table-notice > .content {font-size:0.9em; }
-.table-notice > .header > div{ border:1px solid #DDD; text-align:center; font-weight: bold;}
-.table-notice > .content > div{ border:1px solid #DDD; }
+.table-notice > .header > div{ border:1px solid #CCC; text-align:center; font-weight: bold;}
+.table-notice > .content > div{ border:1px solid #CCC; padding:4px 4px;}
 
 .button-notice { display:none; }
 .button-notice > .row { width:105%; }
@@ -65,7 +65,7 @@ body { padding-top:62px; }
             <div class="row header">
               <div class="col-3">日期</div>
               <div class="col-2">編號</div>
-              <div class="col-5">主題</div>
+              <div class="col-5">主旨</div>
               <div class="col-2">部門</div>
             </div>
             <?php foreach($notices as $notice) : ?>
@@ -73,7 +73,7 @@ body { padding-top:62px; }
               <div class="col-3"><?=$notice['start_date']?> (<?=$notice['date_diff']?>)</div>
               <div class="col-2"><?=str_pad($notice['int_id'], 5, '0', STR_PAD_LEFT)?></div>
               <div class="col-5"><a href="<?=$notice['chr_doc_path']?>" target="_blank"><?=$notice['chr_title']?></a></div>
-              <div class="col-2"><?=$notice['dept_name']?></div>
+              <div class="col-2" style="text-align:center;"><?=$notice['dept_name']?></div>
             </div>
           <?php endforeach; ?>
           </div>

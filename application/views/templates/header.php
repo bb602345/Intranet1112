@@ -41,11 +41,11 @@
           <li class="nav-item <?php if ($active == 'notice') echo 'active'; ?>">
             <a class="nav-link text-light" href="/notice">通告</a>
           </li>
+          <li class="nav-item <?php if ($active == 'form') echo 'active'; ?>">
+            <a class="nav-link text-light" href="/form">表格</a>
+          </li>
           <li class="nav-item <?php if ($active == 'order') echo 'active'; ?>">
             <a class="nav-link text-light" href="/order">柯打</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">收貨</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="#">通訊錄</a>

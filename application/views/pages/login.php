@@ -2,6 +2,7 @@
 
   <div class="starter-template">
     <br>
+    <h2>蛋撻王控股有限公司</h2>
     <?php if(isset($message)) :?>
 
       <?php if($message === 'LOGIN_FAIL') : ?>

@@ -65,7 +65,10 @@ $route['order'] = 'order/main';
 $route['order/dept/(:any)'] = 'order/dept/$1';
 $route['order/dept/(:any)/cat/(:any)'] = 'order/cat/$1/$2';
 
-$route['notice/(:any)'] = 'pages/notice/$1';
+$route['form/(:num)'] = 'form/main/$1';
+$route['form'] = 'form/main';
+
+$route['notice/(:num)'] = 'pages/notice/$1';
 $route['notice'] = 'pages/notice';
 $route['default_controller'] = 'Auth/login';
 
