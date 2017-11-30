@@ -68,6 +68,8 @@ $route['order/dept/(:any)/cat/(:any)'] = 'order/cat/$1/$2';
 $route['form/(:num)'] = 'form/main/$1';
 $route['form'] = 'form/main';
 
+$route['report'] = 'report/main';
+
 $route['notice/(:num)'] = 'pages/notice/$1';
 $route['notice'] = 'pages/notice';
 $route['default_controller'] = 'Auth/login';

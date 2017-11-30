@@ -47,6 +47,9 @@
           <li class="nav-item <?php if ($active == 'order') echo 'active'; ?>">
             <a class="nav-link text-light" href="/order">柯打</a>
           </li>
+          <li class="nav-item <?php if ($active == 'report') echo 'active'; ?>">
+            <a class="nav-link text-light" href="/report">報告</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="#">通訊錄</a>
           </li>
