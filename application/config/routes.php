@@ -68,6 +68,9 @@ $route['order/dept/(:any)/cat/(:any)'] = 'order/cat/$1/$2';
 $route['form/(:num)'] = 'form/main/$1';
 $route['form'] = 'form/main';
 
+$route['phonebook/(:num)'] = 'phonebook/main/$1';
+$route['phonebook'] = 'phonebook/main';
+
 $route['report'] = 'report/main';
 
 $route['notice/(:num)'] = 'pages/notice/$1';

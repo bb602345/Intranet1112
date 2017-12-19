@@ -28,12 +28,14 @@
 
     public function RepairProject()
     {
+      $this->load->model('Repair_model');
       $this->Loading(4, 'pages/report/report.RepairProject.php');
     }
 
 
     private function Loading($reportID, $mainpage)
     {
+      $this->DataLoading($reportID);
       $data['active'] = 'report';
       $data['reportID'] = $reportID;
 
@@ -42,6 +44,14 @@
       $this->load->view( $mainpage, $data);
       $this->load->view('pages/report/templates/report.end.php', $data);
       $this->load->view('templates/footer', $data);
+    }
+    private function DataLoading($reportID){
+      switch($reportID){
+        case 4:
+          //print_r($this->Repair_model->getDept());
+          break;
+      }
+
     }
 
   }

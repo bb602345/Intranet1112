@@ -21,8 +21,9 @@
 .btn-custom-2:hover { color: #EAEA00; }
 .btn-custom-3:hover { color: #EAEA00; }
 
-#repair-form {font-size: 22px; display:none; }
+#repair-form {font-size: 24px; display:none; }
 #repair-form div.row { margin-bottom: 4px; }
+#repair-form div {font-size: 1em; }
 #repair-form input {width:200px; }
 #repair-form select {width:200px; }
 
@@ -49,6 +50,7 @@ body { padding-top:62px; }
 @media (max-width: 375px){
   .btn-custom-2 {font-size:12px;}
   .btn-custom-3 {font-size:12px;}
+  #repair-form div {font-size: 0.8em; }
 }
 
 </style>

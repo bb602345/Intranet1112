@@ -2,7 +2,7 @@
   <head>
     <title>內聯網</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script src="/js/jquery.slim.min.js" type="text/javascript"></script>
     <script src="/js/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="/js/tether.min.js" type="text/javascript"></script>
@@ -44,14 +44,17 @@
           <li class="nav-item <?php if ($active == 'form') echo 'active'; ?>">
             <a class="nav-link text-light" href="/form">表格</a>
           </li>
-          <li class="nav-item <?php if ($active == 'order') echo 'active'; ?>">
-            <a class="nav-link text-light" href="/order">柯打</a>
-          </li>
           <li class="nav-item <?php if ($active == 'report') echo 'active'; ?>">
             <a class="nav-link text-light" href="/report">報告</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">通訊錄</a>
+            <a class="nav-link text-light" href="#">圖書館</a>
+          </li>
+          <li class="nav-item <?php if ($active == 'phonebook') echo 'active'; ?>">
+            <a class="nav-link text-light" href="/phonebook">通訊錄</a>
+          </li>
+          <li class="nav-item <?php if ($active == 'order') echo 'active'; ?>">
+            <a class="nav-link text-light" href="/order">柯打</a>
           </li>
         </ul>
 
